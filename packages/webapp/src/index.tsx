@@ -7,9 +7,7 @@ class Root extends Component {
   render() {
     return (
       <React.StrictMode>
-        <div className="h-100">
-          hello friend!
-        </div>
+        <div className="h-100">hello friend!</div>
       </React.StrictMode>
     );
   }
