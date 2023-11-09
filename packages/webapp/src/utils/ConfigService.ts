@@ -3,14 +3,14 @@ import { ConfigServiceAbstract } from "@AllOps/lib-common";
 
 export const configValues = {
   BASE_URL: Joi.string(),
-  PORT: Joi.number()
+  PORT: Joi.number(),
 };
 
 export class ConfigService extends ConfigServiceAbstract<typeof configValues> {
   constructor() {
     super(configValues, undefined, {
       BASE_URL: process.env.BASE_URL,
-      PORT: process.env.PORT
+      PORT: process.env.PORT,
     });
   }
 }

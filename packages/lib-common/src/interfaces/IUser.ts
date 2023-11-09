@@ -9,5 +9,4 @@ export interface IUser {
   birthdate: Date;
   contract: string; // TODO: Contract Interface
   role: EUserRole;
-
 }

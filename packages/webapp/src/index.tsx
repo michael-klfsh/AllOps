@@ -3,7 +3,7 @@ import "reflect-metadata";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {AppRouter} from "./app/AppRouter";
+import { AppRouter } from "./app/AppRouter";
 
 class Root extends Component {
   render() {
@@ -11,7 +11,7 @@ class Root extends Component {
       <React.StrictMode>
         <div className={"h-100"}>
           <BrowserRouter>
-            <AppRouter/>
+            <AppRouter />
           </BrowserRouter>
         </div>
       </React.StrictMode>

@@ -12,36 +12,31 @@ export const AppRouter = () => {
   const mainRoutes = [
     {
       path: "/",
-      element: (<AppLayout><HomeScreen/></AppLayout>),
+      element: (
+        <AppLayout>
+          <HomeScreen />
+        </AppLayout>
+      ),
       exact: true,
-      children: [
-        { path: "nested", element: <h1>This is a nested route!</h1> },
-      ],
+      children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
     },
-    { path: "404", element: <NotFoundPage/> },
-    { path: "*", element: <Navigate to="/404" /> }
-
-  ]
+    { path: "404", element: <NotFoundPage /> },
+    { path: "*", element: <Navigate to="/404" /> },
+  ];
 
   const specialRoute = [
     {
       path: "/asdf",
-      element: <HomeScreen/>,
+      element: <HomeScreen />,
       exact: true,
     },
-  ]
+  ];
 
-
-
-  const routing = useRoutes([
-    ...mainRoutes,
-    ...specialRoute
-  ]);
+  const routing = useRoutes([...mainRoutes, ...specialRoute]);
 
   return (
     <QueryClientProvider client={reactQueryClient}>
-        {routing}
-
+      {routing}
     </QueryClientProvider>
   );
 };
