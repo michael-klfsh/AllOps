@@ -31,6 +31,5 @@
     "docker:keycloak": "docker-compose -f ./docker/keycloak/docker-compose.yml up -d --scale keycloak=1",
     "docker:azurite": "docker-compose -f ./docker/azurite/docker-compose.yml up -d",
     "docker:dev": "lerna run docker:dev"
-  },
-  "packageManager": "yarn@4.0.1"
+  }
 }
