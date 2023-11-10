@@ -10,5 +10,6 @@
 2. in the `webapp` package, create a new file in the root called .env
    1. add this property to the file:
    2. BASE_URL=http://localhost:3000
+   3. PORT=3000
 3. run `yarn build:lib`
 4. to start all applications, run `yarn run:all`
