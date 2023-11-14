@@ -3,7 +3,7 @@ import HorizontalNavbar from "../../components/FinanceNavBar";
 import "./FormMaterials.css";
 
 const FormMaterials = () => {
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     console.log("Form submitted");
   };

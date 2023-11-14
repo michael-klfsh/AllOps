@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
-import { RequireAuthRoute } from "../utils/auth/RequireAuthRoute";
 import { QueryClientProvider, QueryClient } from "react-query";
 import AppLayout from "../components/AppLayout";
 import NotFoundPage from "../screens/NotFoundPage";

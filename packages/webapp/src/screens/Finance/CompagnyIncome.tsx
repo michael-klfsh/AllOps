@@ -16,7 +16,7 @@ const CompagnyIncome = () => {
       <div style={style.container}>
         <h1 style={{ textAlign: "center", color: "#333" }}>Company Income</h1>
         <p style={{ textAlign: "center", marginBottom: "40px" }}>
-          Overview of the company's income and financial performance.
+          Overview of the company&apos;s income and financial performance.
         </p>
 
         {/* Add a table or chart here to display income data */}

@@ -5,10 +5,10 @@ import "./FinanceNavBar.css";
 
 const MyNavbar = () => {
   // State to keep track of the active NavItem
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState("");
 
   // Function to handle NavItem click
-  const handleItemClick = (item: any) => {
+  const handleItemClick = (item: string) => {
     console.log("Hello");
     setActiveItem(item);
     getNavItemStyle(item);

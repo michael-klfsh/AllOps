@@ -25,20 +25,6 @@ const SpendingStatistics = () => {
     setTotalSpending(data.reduce((total, item) => total + item.amount, 0));
   }, []);
 
-  // Prepare data for the chart
-  const chartData = {
-    labels: spendingData.map((data) => data.category),
-    datasets: [
-      {
-        label: "Spending per Category",
-        data: spendingData.map((data) => data.amount),
-        backgroundColor: "rgba(54, 162, 235, 0.5)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <div>
       <HorizontalNavbar />
