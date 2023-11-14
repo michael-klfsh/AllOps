@@ -31,5 +31,11 @@
     "docker:keycloak": "docker-compose -f ./docker/keycloak/docker-compose.yml up -d --scale keycloak=1",
     "docker:azurite": "docker-compose -f ./docker/azurite/docker-compose.yml up -d",
     "docker:dev": "lerna run docker:dev"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.9",
+    "@fullcalendar/daygrid": "^6.1.9",
+    "@fullcalendar/react": "^6.1.9",
+    "@fullcalendar/timegrid": "^6.1.9"
   }
 }
