@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import Sun from "../../assets/img/brightness-high.svg";
-import { NavLink } from "reactstrap";
+import Wind from "../../assets/img/wind.svg";
+import WeatherIcon from "./WeatherIcon";
 
 const Weather = ({ children }: { children?: React.ReactNode }) => {
   //Variable
@@ -57,22 +56,23 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
     cod: 200,
   };
 
-  //"main": "Rain",
-  //"temp": 298.48,
-  //(wind)"speed": 0.62,
-
-  //Functions
-
   const toggle = () => setIsOpen(!isOpen);
+  const weather = "Rain";
+  const temp = 25.12;
+  const wind = 0.62;
 
   return (
-    <div>
-      <div>
-        <Sun />
-        Rain
+    <div style={{ display: "flex" }}>
+      <div style={{ width: "75%" }}>
+        <span>{temp}°C</span>
+        <div>
+          <Wind />
+          <span>{wind}</span>
+        </div>
       </div>
-      <div>298,48</div>
-      <div>0,62</div>
+      <div style={{ width: "25%" }}>
+        <WeatherIcon weatherName={weather} />
+      </div>
     </div>
   );
 };
