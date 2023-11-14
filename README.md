@@ -12,4 +12,4 @@
    2. BASE_URL=http://localhost:3000
    3. PORT=3000
 3. run `yarn build:lib`
-4. to start all applications, run `yarn run:all`
+4. to start all applications, run `yarn start:all`
