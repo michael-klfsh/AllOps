@@ -33,6 +33,11 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
                 Not found
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to={"daily"}>
+                Daily
+              </NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

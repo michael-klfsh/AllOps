@@ -5,6 +5,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import AppLayout from "../components/AppLayout";
 import NotFoundPage from "../screens/NotFoundPage";
 import HomeScreen from "../screens/HomeScreen";
+import DailyDashboard from "../screens/DailyDashboard";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -20,6 +21,7 @@ export const AppRouter = () => {
       exact: true,
       children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
     },
+    { path: "daily", element: <DailyDashboard/>},
     { path: "404", element: <NotFoundPage /> },
     { path: "*", element: <Navigate to="/404" /> },
   ];
