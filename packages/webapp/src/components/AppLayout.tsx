@@ -9,7 +9,7 @@ import {
   NavItem,
   NavLink,
   NavbarText,
-  Button
+  Button,
 } from "reactstrap";
 
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
@@ -42,12 +42,10 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
           </Nav>
         </Collapse>
         {logedin && name ? (
-          <NavbarText className={"me-2"}>
-            {name}
-          </NavbarText>
+          <NavbarText className={"me-2"}>{name}</NavbarText>
         ) : null}
         <Button outline size="md" onClick={toggleLogin}>
-            {logedin ? "Logout " : "Login"}
+          {logedin ? "Logout " : "Login"}
         </Button>
       </Navbar>
       <main className="p-3 pt-5">
