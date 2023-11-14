@@ -2,7 +2,9 @@ import * as path from "path";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import DotenvWebpackPlugin from "dotenv-webpack";
-// import { configValues } from "./src/utils/ConfigService";
+import { ConfigService } from "./src/utils/ConfigService";
+
+const configService = new ConfigService();
 
 module.exports = (
   env: { development?: boolean; platform?: string; dotenv?: boolean } = {}
@@ -85,7 +87,7 @@ module.exports = (
     hints: false,
   },
   devServer: {
-    port: 3000,
+    port: configService.get("PORT"),
     historyApiFallback: true,
   },
   devtool: "eval-cheap-source-map", // TODO setting this to false or "source-map" solves the warning overload bug on console.. why?

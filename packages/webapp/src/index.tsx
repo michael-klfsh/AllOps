@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import "reflect-metadata";
 import { render } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
+import { AppRouter } from "./app/AppRouter";
 
 class Root extends Component {
   render() {
     return (
       <React.StrictMode>
         <Header />
-        <div className="h-100">hello friend!</div>
+        <div className={"h-100"}>
+          <BrowserRouter>
+            <AppRouter />
+          </BrowserRouter>
+        </div>
       </React.StrictMode>
     );
   }
