@@ -8,12 +8,18 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
+  NavbarText,
+  Button
 } from "reactstrap";
 
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [logedin, setLogedIn] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const toggleLogin = () => setLogedIn(!logedin);
+
+  const name = "Michael";
 
   return (
     <div className={"mb-5"}>
@@ -35,6 +41,14 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
             </NavItem>
           </Nav>
         </Collapse>
+        {logedin && name ? (
+          <NavbarText className={"me-2"}>
+            {name}
+          </NavbarText>
+        ) : null}
+        <Button outline size="md" onClick={toggleLogin}>
+            {logedin ? "Logout " : "Login"}
+        </Button>
       </Navbar>
       <main className="p-3 pt-5">
         <div>
