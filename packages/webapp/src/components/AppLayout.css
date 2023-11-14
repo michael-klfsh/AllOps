@@ -1,0 +1,35 @@
+.app-layout {
+  display: flex;
+}
+
+.sidebar {
+  background: #333;
+  color: white;
+  padding: 1rem;
+  min-height: 100vh;
+  width: 250px;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  position: relative; /* Required for absolute positioning of toggle button */
+}
+
+.content {
+  width: 100%;
+  transition: margin-left 0.4s ease;
+}
+
+/* Style the navigation menu inside the sidebar */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.nav-link {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.nav-link:hover {
+  color: #ff85d8;
+  font-size: 25px;
+}
