@@ -28,7 +28,11 @@ export const AppRouter = () => {
     },
     {
       path: "/home",
-      element: <AppLayout><DailyDashboard /></AppLayout>,
+      element: (
+        <AppLayout>
+          <DailyDashboard />
+        </AppLayout>
+      ),
       exact: true,
     },
     {

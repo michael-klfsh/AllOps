@@ -21,6 +21,7 @@
     "codegen:api": "npx @rtk-query/codegen-openapi openapi-config.ts"
   },
   "dependencies": {
+    "@babel/highlight": "^7.22.20",
     "@babel/runtime": "^7.16.7",
     "@svgr/webpack": "^8.1.0",
     "bootstrap": "^5.1.3",
@@ -33,7 +34,8 @@
     "react-query": "^3.39.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "reactstrap": "^9.2.1"
+    "reactstrap": "^9.2.1",
+    "universal-cookie": "^6.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
