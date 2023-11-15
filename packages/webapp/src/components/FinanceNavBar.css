@@ -1,0 +1,28 @@
+/* HorizontalNavbar.css */
+.horizontal-navbar {
+  background-color: #333; /* Background color of the navbar */
+  height: 65px;
+  position: absolute;
+  top: 0px;
+  width: 71lh;
+}
+
+.horizontal-navbar li {
+  padding: 10px;
+}
+
+.horizontal-navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.horizontal-navbar a:hover {
+  color: #ff85d8;
+  font-size: 20px;
+}
+
+.nav-item {
+  height: 65px;
+}
