@@ -4,6 +4,7 @@ import Weather from "../components/Weather";
 import { Card, CardBody, Row, Col, Container } from "reactstrap";
 import Email from "../components/Email";
 import Calendar from "../components/Calendar";
+import Task from "../components/Task";
 
 const DailyDashboard = () => (
   <AppLayout>
@@ -41,7 +42,9 @@ const DailyDashboard = () => (
 
         <Col xs="6">
           <Card>
-            <CardBody></CardBody>
+            <CardBody>
+              <Task />
+            </CardBody>
           </Card>
         </Col>
       </Row>
