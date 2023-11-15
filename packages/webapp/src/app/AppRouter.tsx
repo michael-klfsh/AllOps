@@ -1,11 +1,16 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
-import { RequireAuthRoute } from "../utils/auth/RequireAuthRoute";
 import { QueryClientProvider, QueryClient } from "react-query";
 import AppLayout from "../components/AppLayout";
 import NotFoundPage from "../screens/NotFoundPage";
-import HomeScreen from "../screens/HomeScreen";
 import DailyDashboard from "../screens/DailyDashboard";
+import HomeScreenPage from "../screens/HomeScreen";
+import FinancePage from "../screens/Finance/FormSpendings";
+import FormSpendings from "../screens/Finance/FormSpendings";
+import SpendingStatistics from "../screens/Finance/SpendingStatistics";
+import FormMaterials from "../screens/Finance/FormMaterials";
+import CompagnyIncome from "../screens/Finance/CompagnyIncome";
+import RequestsRecap from "../screens/Finance/RequestsRecap";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -15,13 +20,77 @@ export const AppRouter = () => {
       path: "/",
       element: (
         <AppLayout>
-          <HomeScreen />
+          <HomeScreenPage />
         </AppLayout>
       ),
       exact: true,
       children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
     },
-    { path: "daily", element: <DailyDashboard /> },
+    {
+      path: "/home",
+      element: <AppLayout><DailyDashboard /></AppLayout>,
+      exact: true,
+    },
+    {
+      path: "/dashboard",
+      element: <AppLayout># TODO PUT DASHBOARD COMPONENT HERE</AppLayout>,
+      exact: true,
+    },
+    {
+      path: "/finance",
+      element: (
+        <AppLayout>
+          <FinancePage />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/form-spendings",
+      element: (
+        <AppLayout>
+          <FormSpendings />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/spendings-statistics",
+      element: (
+        <AppLayout>
+          <SpendingStatistics />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/form-materials",
+      element: (
+        <AppLayout>
+          <FormMaterials />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/requests-recap",
+      element: (
+        <AppLayout>
+          <RequestsRecap />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/compagny-income",
+      element: (
+        <AppLayout>
+          <CompagnyIncome />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+
     { path: "404", element: <NotFoundPage /> },
     { path: "*", element: <Navigate to="/404" /> },
   ];
@@ -29,7 +98,7 @@ export const AppRouter = () => {
   const specialRoute = [
     {
       path: "/asdf",
-      element: <HomeScreen />,
+      element: <HomeScreenPage />,
       exact: true,
     },
   ];

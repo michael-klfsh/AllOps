@@ -1,0 +1,29 @@
+.spending-stats {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin-top: 65px;
+}
+
+.total-spending {
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  margin-bottom: 30px;
+}
+
+.spending-details table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.spending-details th,
+.spending-details td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.spending-details th {
+  background-color: #f2f2f2;
+}

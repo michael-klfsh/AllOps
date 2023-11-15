@@ -1,6 +1,6 @@
 import React from "react";
 
-const NotFoundPage = () => (
+const HomeScreenPage = () => (
   <div>
     <h1>This is an h1</h1>
     <h2>This is an h2</h2>
@@ -11,4 +11,4 @@ const NotFoundPage = () => (
     </div>
   </div>
 );
-export default NotFoundPage;
+export default HomeScreenPage;
