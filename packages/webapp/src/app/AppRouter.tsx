@@ -18,9 +18,7 @@ export const AppRouter = () => {
   const mainRoutes = [
     {
       path: "/",
-      element: (
-          <HomeScreenPage />
-      ),
+      element: <HomeScreenPage />,
       exact: true,
       children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
     },
@@ -45,37 +43,27 @@ export const AppRouter = () => {
     },
     {
       path: "/form-spendings",
-      element: (
-          <FormSpendings />
-      ),
+      element: <FormSpendings />,
       exact: true,
     },
     {
       path: "/spendings-statistics",
-      element: (
-          <SpendingStatistics />
-      ),
+      element: <SpendingStatistics />,
       exact: true,
     },
     {
       path: "/form-materials",
-      element: (
-          <FormMaterials />
-      ),
+      element: <FormMaterials />,
       exact: true,
     },
     {
       path: "/requests-recap",
-      element: (
-          <RequestsRecap />
-      ),
+      element: <RequestsRecap />,
       exact: true,
     },
     {
       path: "/compagny-income",
-      element: (
-          <CompagnyIncome />
-      ),
+      element: <CompagnyIncome />,
       exact: true,
     },
 
@@ -95,9 +83,7 @@ export const AppRouter = () => {
 
   return (
     <QueryClientProvider client={reactQueryClient}>
-      <AppLayout>
-        {routing}
-      </AppLayout>
+      <AppLayout>{routing}</AppLayout>
     </QueryClientProvider>
   );
 };
