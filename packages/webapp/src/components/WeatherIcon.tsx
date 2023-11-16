@@ -5,7 +5,7 @@ import Cloud from "../../assets/img/cloudy.svg";
 import Snow from "../../assets/img/cloud-snow.svg";
 
 const WeatherIcon = ({ weatherName }: { weatherName: string }) => {
-  let weather = weatherName;
+  const weather = weatherName;
 
   switch (weather) {
     case "Sun":
