@@ -10,6 +10,7 @@ import SpendingStatistics from "../screens/Finance/SpendingStatistics";
 import FormMaterials from "../screens/Finance/FormMaterials";
 import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
+import TimeLeaveOverview from "../screens/CompanyDashboard/TimeLeaveOverview";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -18,74 +19,62 @@ export const AppRouter = () => {
     {
       path: "/",
       element: (
-        <AppLayout>
           <HomeScreenPage />
-        </AppLayout>
       ),
       exact: true,
       children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
     },
     {
       path: "/home",
-      element: <AppLayout># TODO PUT HOME COMPONENT HERE</AppLayout>,
+      element: <div># TODO PUT HOME COMPONENT HERE</div>,
       exact: true,
     },
     {
       path: "/dashboard",
-      element: <AppLayout># TODO PUT DASHBOARD COMPONENT HERE</AppLayout>,
+      element: <div># TODO PUT DASHBOARD COMPONENT HERE</div>,
       exact: true,
     },
     {
       path: "/finance",
       element: (
-        <AppLayout>
+        <>
           <FinancePage />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
       path: "/form-spendings",
       element: (
-        <AppLayout>
           <FormSpendings />
-        </AppLayout>
       ),
       exact: true,
     },
     {
       path: "/spendings-statistics",
       element: (
-        <AppLayout>
           <SpendingStatistics />
-        </AppLayout>
       ),
       exact: true,
     },
     {
       path: "/form-materials",
       element: (
-        <AppLayout>
           <FormMaterials />
-        </AppLayout>
       ),
       exact: true,
     },
     {
       path: "/requests-recap",
       element: (
-        <AppLayout>
           <RequestsRecap />
-        </AppLayout>
       ),
       exact: true,
     },
     {
       path: "/compagny-income",
       element: (
-        <AppLayout>
           <CompagnyIncome />
-        </AppLayout>
       ),
       exact: true,
     },
@@ -96,8 +85,8 @@ export const AppRouter = () => {
 
   const specialRoute = [
     {
-      path: "/asdf",
-      element: <HomeScreenPage />,
+      path: "/time-leave",
+      element: <TimeLeaveOverview />,
       exact: true,
     },
   ];
@@ -106,7 +95,9 @@ export const AppRouter = () => {
 
   return (
     <QueryClientProvider client={reactQueryClient}>
-      {routing}
+      <AppLayout>
+        {routing}
+      </AppLayout>
     </QueryClientProvider>
   );
 };
