@@ -1,5 +1,4 @@
 import React from "react";
-import HorizontalNavbar from "../../components/FinanceNavBar";
 import "./FormMaterials.css";
 
 const FormMaterials = () => {
@@ -10,7 +9,6 @@ const FormMaterials = () => {
 
   return (
     <div className="form-container">
-      <HorizontalNavbar />
       <form onSubmit={handleSubmit} className="form-style">
         <h2 className="form-title">Materials Request Form</h2>
 

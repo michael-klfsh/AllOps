@@ -1,5 +1,4 @@
 import React from "react";
-import HorizontalNavbar from "../../components/FinanceNavBar";
 
 const FormSpendings = () => {
   // Handler for form submission
@@ -11,7 +10,6 @@ const FormSpendings = () => {
 
   return (
     <div className="form-container">
-      <HorizontalNavbar />
       <form onSubmit={handleSubmit} className="form-style">
         <h2 className="form-title">Spending Request Form</h2>
 

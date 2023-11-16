@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import HorizontalNavbar from "../../components/FinanceNavBar";
 import "./SpendingStatistics.css"; // Import your CSS file
 
 // Define an interface for the spending data
@@ -27,7 +26,6 @@ const SpendingStatistics = () => {
 
   return (
     <div>
-      <HorizontalNavbar />
       <div className="spending-stats">
         <h1>Spending Statistics</h1>
 
