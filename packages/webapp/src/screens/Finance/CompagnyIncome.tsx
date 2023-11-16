@@ -1,5 +1,4 @@
 import React from "react";
-import HorizontalNavbar from "../../components/FinanceNavBar";
 
 const CompagnyIncome = () => {
   const style = {
@@ -12,7 +11,6 @@ const CompagnyIncome = () => {
 
   return (
     <div style={{ fontFamily: "Arial, sans-serif" }}>
-      <HorizontalNavbar />
       <div style={style.container}>
         <h1 style={{ textAlign: "center", color: "#333" }}>Company Income</h1>
         <p style={{ textAlign: "center", marginBottom: "40px" }}>

@@ -1,5 +1,4 @@
 import React from "react";
-import HorizontalNavbar from "../../components/FinanceNavBar";
 
 const RequestsRecap = () => {
   const style = {
@@ -35,7 +34,6 @@ const RequestsRecap = () => {
 
   return (
     <div>
-      <HorizontalNavbar />
       <div style={style.container}>
         <h1 style={{ textAlign: "center", color: "#333" }}>Requests Recap</h1>
         <div style={{ marginTop: "20px" }}>

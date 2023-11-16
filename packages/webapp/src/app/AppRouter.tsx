@@ -11,6 +11,7 @@ import SpendingStatistics from "../screens/Finance/SpendingStatistics";
 import FormMaterials from "../screens/Finance/FormMaterials";
 import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
+import HorizontalNavbar from "../components/FinanceNavBar";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -44,6 +45,7 @@ export const AppRouter = () => {
       path: "/finance",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <FinancePage />
         </AppLayout>
       ),
@@ -53,6 +55,7 @@ export const AppRouter = () => {
       path: "/form-spendings",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <FormSpendings />
         </AppLayout>
       ),
@@ -62,6 +65,7 @@ export const AppRouter = () => {
       path: "/spendings-statistics",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <SpendingStatistics />
         </AppLayout>
       ),
@@ -71,6 +75,7 @@ export const AppRouter = () => {
       path: "/form-materials",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <FormMaterials />
         </AppLayout>
       ),
@@ -80,6 +85,7 @@ export const AppRouter = () => {
       path: "/requests-recap",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <RequestsRecap />
         </AppLayout>
       ),
@@ -89,6 +95,7 @@ export const AppRouter = () => {
       path: "/compagny-income",
       element: (
         <AppLayout>
+          <HorizontalNavbar />
           <CompagnyIncome />
         </AppLayout>
       ),
