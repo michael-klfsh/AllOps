@@ -6,46 +6,46 @@ import Calendar from "../components/Calendar";
 import Task from "../components/Task";
 
 const DailyDashboard = () => (
-    <Container>
-      <Row className="mb-2">
-        <Col xs="8">
-          <Card className="mb-2" style={{ height: "calc(50% - 0.25rem)" }}>
-            <CardBody style={{ textAlign: "center", padding: "10px 10px" }}>
-              <h3>Good day and welcome to your Daily Dashboard! 🌟</h3>
-            </CardBody>
-          </Card>
+  <Container>
+    <Row className="mb-2">
+      <Col xs="8">
+        <Card className="mb-2" style={{ height: "calc(50% - 0.25rem)" }}>
+          <CardBody style={{ textAlign: "center", padding: "10px 10px" }}>
+            <h3>Good day and welcome to your Daily Dashboard! 🌟</h3>
+          </CardBody>
+        </Card>
 
-          <Card style={{ height: "calc(50% - 0.25rem)" }}>
-            <CardBody style={{ textAlign: "center" }}>
-              <Email />
-            </CardBody>
-          </Card>
-        </Col>
-        <Col xs="4">
-          <Card style={{ height: "100%" }}>
-            <CardBody>
-              <Weather />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs="6">
-          <Card>
-            <CardBody>
-              <Calendar />
-            </CardBody>
-          </Card>
-        </Col>
+        <Card style={{ height: "calc(50% - 0.25rem)" }}>
+          <CardBody style={{ textAlign: "center" }}>
+            <Email />
+          </CardBody>
+        </Card>
+      </Col>
+      <Col xs="4">
+        <Card style={{ height: "100%" }}>
+          <CardBody>
+            <Weather />
+          </CardBody>
+        </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col xs="6">
+        <Card>
+          <CardBody>
+            <Calendar />
+          </CardBody>
+        </Card>
+      </Col>
 
-        <Col xs="6">
-          <Card>
-            <CardBody>
-              <Task />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+      <Col xs="6">
+        <Card>
+          <CardBody>
+            <Task />
+          </CardBody>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
 );
 export default DailyDashboard;
