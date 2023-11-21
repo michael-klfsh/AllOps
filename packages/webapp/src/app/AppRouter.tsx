@@ -3,14 +3,16 @@ import { Navigate, useRoutes } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 import AppLayout from "../components/AppLayout";
 import NotFoundPage from "../screens/NotFoundPage";
-import HomeScreenPage from "../screens/HomeScreen";
+import DailyDashboard from "../screens/DailyDashboard";
 import FinancePage from "../screens/Finance/FormSpendings";
 import FormSpendings from "../screens/Finance/FormSpendings";
 import SpendingStatistics from "../screens/Finance/SpendingStatistics";
 import FormMaterials from "../screens/Finance/FormMaterials";
 import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
-import TimeLeaveOverview from "../screens/CompanyDashboard/TimeLeaveOverview";
+import LeaveRequestScreen from "../screens/CompanyDashboard/LeaveRequestScreen";
+import HorizontalNavbar from "../components/FinanceNavBar";
+import CompanyDashboardNavbar from "../components/CompanyDashboardNavbar";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -18,24 +20,19 @@ export const AppRouter = () => {
   const mainRoutes = [
     {
       path: "/",
-      element: <HomeScreenPage />,
-      exact: true,
-      children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
-    },
-    {
-      path: "/home",
-      element: <div># TODO PUT HOME COMPONENT HERE</div>,
+      element: <DailyDashboard />,
       exact: true,
     },
     {
       path: "/dashboard",
-      element: <div># TODO PUT DASHBOARD COMPONENT HERE</div>,
+      element: <div>Dashboard</div>,
       exact: true,
     },
     {
       path: "/finance",
       element: (
         <>
+          <HorizontalNavbar />
           <FinancePage />
         </>
       ),
@@ -43,27 +40,52 @@ export const AppRouter = () => {
     },
     {
       path: "/form-spendings",
-      element: <FormSpendings />,
+      element: (
+        <>
+          <HorizontalNavbar />
+          <FormSpendings />
+        </>
+      ),
       exact: true,
     },
     {
       path: "/spendings-statistics",
-      element: <SpendingStatistics />,
+      element: (
+        <>
+          <HorizontalNavbar />
+          <SpendingStatistics />
+        </>
+      ),
       exact: true,
     },
     {
       path: "/form-materials",
-      element: <FormMaterials />,
+      element: (
+        <>
+          <HorizontalNavbar />
+          <FormMaterials />
+        </>
+      ),
       exact: true,
     },
     {
       path: "/requests-recap",
-      element: <RequestsRecap />,
+      element: (
+        <>
+          <HorizontalNavbar />
+          <RequestsRecap />
+        </>
+      ),
       exact: true,
     },
     {
-      path: "/compagny-income",
-      element: <CompagnyIncome />,
+      path: "/company-income",
+      element: (
+        <>
+          <HorizontalNavbar />
+          <CompagnyIncome />
+        </>
+      ),
       exact: true,
     },
 
@@ -74,7 +96,11 @@ export const AppRouter = () => {
   const specialRoute = [
     {
       path: "/time-leave",
-      element: <TimeLeaveOverview />,
+      element: (
+        <>
+          <LeaveRequestScreen />
+        </>
+      ),
       exact: true,
     },
   ];

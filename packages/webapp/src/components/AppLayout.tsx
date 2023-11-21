@@ -6,15 +6,15 @@ import { TbMoneybag } from "react-icons/tb";
 import { FaHome } from "react-icons/fa";
 import { SlClock } from "react-icons/sl";
 
-import "./AppLayout.css"; // Ensure this CSS file exists in your project
+import "../assets/style/AppLayout.css"; // Ensure this CSS file exists in your project
 
 const AppLayout = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <div className="app-layout">
+    <main className="app-layout">
       <div className="sidebar">
         <Nav navbar vertical>
           <NavItem>
-            <NavLink tag={Link} to="/home">
+            <NavLink tag={Link} to="/">
               <FaHome /> Home
             </NavLink>
           </NavItem>
@@ -35,11 +35,11 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
           </NavItem>
         </Nav>
       </div>
-      <main className="content">
+      <div className="content">
         {children}
         <Outlet />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

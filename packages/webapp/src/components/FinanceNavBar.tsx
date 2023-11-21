@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
-import "./FinanceNavBar.css";
+import "../assets/style/FinanceNavBar.css";
 
 const MyNavbar = () => {
   // State to keep track of the active NavItem
@@ -58,11 +58,11 @@ const MyNavbar = () => {
         </NavLink>
       </NavItem>
       <NavItem
-        style={getNavItemStyle("compagny-income")}
-        onClick={() => handleItemClick("compagny-income")}
+        style={getNavItemStyle("company-income")}
+        onClick={() => handleItemClick("company-income")}
       >
-        <NavLink tag={Link} to="/compagny-income">
-          Compagny Income
+        <NavLink tag={Link} to="/company-income">
+          Company Income
         </NavLink>
       </NavItem>
     </Nav>
