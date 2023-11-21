@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import Wind from "../../assets/img/wind.svg";
 import WeatherIcon from "./WeatherIcon";
 
