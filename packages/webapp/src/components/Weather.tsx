@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Wind from "../../assets/img/wind.svg";
 import WeatherIcon from "./WeatherIcon";
 
@@ -9,29 +9,31 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
   const [wind, setWind] = useState(0);
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
-
-  const APIKey = process.env.WEATHER_KEY;
+  const [shouldFetch, setFetch] = useState(false);
+  const baseURL = "http://127.0.0.1:3001";
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (response) => {
         setLon(response.coords.longitude);
+        setFetch(true);
         setLat(response.coords.latitude);
+        return 0;
       },
       (error) => console.error(error)
     );
 
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        setWeather(json.weather[0].main);
-        setTemperature(Math.floor(json.main.temp - 273.15));
-        setWind(json.wind.speed);
-      })
-      .catch((error) => console.error(error));
-  }, [lat, lon]);
+    if (shouldFetch) {
+      fetch(`${baseURL}/weather/lat/${lat}/lon/${lon}`)
+        .then((response) => response.json())
+        .then((json) => {
+          setWeather(json.weather[0].main);
+          setTemperature(Math.floor(json.main.temp - 273.15));
+          setWind(json.wind.speed);
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [lat]);
 
   return (
     <div style={{ display: "flex" }}>
