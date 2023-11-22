@@ -49,6 +49,8 @@ const getTasks = async (req, res) => {
           issue.url = data[i].html_url;
           issue.id = data[i].id;
           issue.title = data[i].title;
+          issue.number = data[i].number;
+          issue.repoName = data[i].repository.name;
           result.push(issue);
         }
         console.log(result);
