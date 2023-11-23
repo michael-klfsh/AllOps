@@ -4,6 +4,8 @@ import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AppRouter } from "./app/AppRouter";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Root extends Component {
   render() {
@@ -11,6 +13,18 @@ class Root extends Component {
       <React.StrictMode>
         <div className={"h-100"}>
           <BrowserRouter>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              draggable
+              pauseOnHover
+              theme="colored"
+              pauseOnFocusLoss
+            />
             <AppRouter />
           </BrowserRouter>
         </div>
