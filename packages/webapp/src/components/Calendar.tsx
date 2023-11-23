@@ -35,7 +35,7 @@ const Calendar = ({ children }: { children?: React.ReactNode }) => {
     .pop();
   const workDays = [...new Set(workSpec.flatMap((item) => item.daysOfWeek))];
   const hideDays = [...Array(7).keys()].filter(
-    (day) => !workDays.includes(day)
+    (day) => !workDays.includes(day),
   );
 
   return (

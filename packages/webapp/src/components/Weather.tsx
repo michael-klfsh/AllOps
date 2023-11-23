@@ -20,7 +20,7 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
         setLat(response.coords.latitude);
         return 0;
       },
-      (error) => console.error(error)
+      (error) => console.error(error),
     );
 
     if (shouldFetch) {

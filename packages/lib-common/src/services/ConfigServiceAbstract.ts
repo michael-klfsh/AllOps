@@ -12,7 +12,7 @@ export abstract class ConfigServiceAbstract<T> implements IConfigService<T> {
   protected constructor(
     configValues: TConfigValues,
     filePath?: string,
-    input?: TEnvConfigInput
+    input?: TEnvConfigInput,
   ) {
     if (ConfigServiceAbstract.instance) {
       return ConfigServiceAbstract.instance;

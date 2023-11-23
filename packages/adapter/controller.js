@@ -14,7 +14,7 @@ const getWeather = async (req, res) => {
   } else {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${CONFIG.keys.weather}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${CONFIG.keys.weather}`,
       )
       .then((response) => {
         if (response.status == 200) {
@@ -64,7 +64,34 @@ const getTasks = async (req, res) => {
     });
 };
 
+const getEmails = async (req, res) => {
+  const response = { number: 15 };
+  res.json(response);
+};
+
+const getCalendar = async (req, res) => {
+  const startDate = new Date();
+  const endDate = new Date();
+  startDate.setHours(11, 30, 00);
+  endDate.setHours(13, 00, 00);
+  const response = [
+    {
+      title: "BCH237",
+      start: startDate.toJSON(),
+      end: endDate.toJSON(),
+      extendedProps: {
+        department: "BioChemistry",
+      },
+      description: "Lecture",
+    },
+  ];
+
+  res.json(response);
+};
+
 module.exports = {
   getWeather,
   getTasks,
+  getEmails,
+  getCalendar,
 };
