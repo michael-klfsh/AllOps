@@ -66,6 +66,7 @@ const getTasks = async (req, res) => {
 
 const getEmails = async (req, res) => {
   const response = { number: 15 };
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.json(response);
 };
 
@@ -85,7 +86,7 @@ const getCalendar = async (req, res) => {
       description: "Lecture",
     },
   ];
-
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.json(response);
 };
 
