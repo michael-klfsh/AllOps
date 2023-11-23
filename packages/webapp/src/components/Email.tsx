@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import Wind from "../../assets/img/wind.svg";
-import WeatherIcon from "./WeatherIcon";
+import React from "react";
 
 const Email = ({ children }: { children?: React.ReactNode }) => {
   //Variable
