@@ -4,14 +4,17 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import AppLayout from "../components/AppLayout";
 import NotFoundPage from "../screens/NotFoundPage";
 import DailyDashboard from "../screens/DailyDashboard";
-import HomeScreenPage from "../screens/HomeScreen";
 import FinancePage from "../screens/Finance/FormSpendings";
 import FormSpendings from "../screens/Finance/FormSpendings";
 import SpendingStatistics from "../screens/Finance/SpendingStatistics";
 import FormMaterials from "../screens/Finance/FormMaterials";
 import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
+import LeaveRequestScreen from "../screens/CompanyDashboard/LeaveRequestScreen";
 import HorizontalNavbar from "../components/FinanceNavBar";
+import DashboardNavBar from "../screens/CompanyDashboard/components/DashboardNavBar";
+import LeaveRequestStatisticsScreen from "../screens/CompanyDashboard/LeaveRequestStatisticsScreen";
+import LeaveRequestManagementScreen from "../screens/CompanyDashboard/LeaveRequestManagementScreen";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -19,97 +22,113 @@ export const AppRouter = () => {
   const mainRoutes = [
     {
       path: "/",
-      element: (
-        <AppLayout>
-          <HomeScreenPage />
-        </AppLayout>
-      ),
-      exact: true,
-      children: [{ path: "nested", element: <h1>This is a nested route!</h1> }],
-    },
-    {
-      path: "/home",
-      element: (
-        <AppLayout>
-          <DailyDashboard />
-        </AppLayout>
-      ),
-      exact: true,
-    },
-    {
-      path: "/dashboard",
-      element: <AppLayout># TODO PUT DASHBOARD COMPONENT HERE</AppLayout>,
+      element: <DailyDashboard />,
       exact: true,
     },
     {
       path: "/finance",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <FinancePage />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
       path: "/form-spendings",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <FormSpendings />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
       path: "/spendings-statistics",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <SpendingStatistics />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
       path: "/form-materials",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <FormMaterials />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
       path: "/requests-recap",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <RequestsRecap />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
     {
-      path: "/compagny-income",
+      path: "/company-income",
       element: (
-        <AppLayout>
+        <>
           <HorizontalNavbar />
           <CompagnyIncome />
-        </AppLayout>
+        </>
       ),
       exact: true,
     },
 
-    { path: "404", element: <NotFoundPage /> },
+    { path: "*", element: <NotFoundPage />, exact: true },
     { path: "*", element: <Navigate to="/404" /> },
   ];
 
   const specialRoute = [
     {
-      path: "/asdf",
-      element: <HomeScreenPage />,
+      path: "/dashboard",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-statistics",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestStatisticsScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-requests",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-management",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestManagementScreen />
+        </>
+      ),
       exact: true,
     },
   ];
@@ -118,7 +137,7 @@ export const AppRouter = () => {
 
   return (
     <QueryClientProvider client={reactQueryClient}>
-      {routing}
+      <AppLayout>{routing}</AppLayout>
     </QueryClientProvider>
   );
 };
