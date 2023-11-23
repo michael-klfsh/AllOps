@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Button,
   Card,
-  CardBody,
-  CardTitle,
   Col,
   Container,
   Form,
@@ -24,7 +22,7 @@ import {
   LEAVE_REQUESTS,
   TLeaveRequest,
 } from "../../assets/data/LeaveRequest";
-import ManagerComponents from "./components/ManagerComponents";
+import EmployeeLeaveCalendar from "./components/EmployeeLeaveCalendar";
 
 const INITIAL_STATE: TLeaveRequest = {
   id: 0,
@@ -43,8 +41,6 @@ const LeaveRequestScreen = () => {
   const [newRequest, setNewRequest] = useState<TLeaveRequest | undefined>(
     undefined
   );
-  const [isManager, setIsManager] = useState<boolean>(true);
-
   const handleNewRequestOpen = () => {
     setNewRequestOpen(!newRequestOpen);
   };
@@ -57,7 +53,6 @@ const LeaveRequestScreen = () => {
         }-${new Date().getDate()}`;
 
   const resetForm = () => {
-    console.log(newRequest);
     setNewRequestOnEdit(INITIAL_STATE);
     setNewRequest(undefined);
     setNewRequestOpen(false);
@@ -78,15 +73,24 @@ const LeaveRequestScreen = () => {
 
   return (
     <Container className={"p-sm-4"}>
-      <Button color={"primary"} onClick={() => setIsManager(!isManager)}>
-        {isManager ? "Get Employee View" : "Get Manager View"}
-      </Button>
-      <h2>Leave Request Service</h2>
+      <Row className={"justify-content-center"}>
+        <Col>
+          <h2>Leave Request Service</h2>
+          <Button onClick={handleNewRequestOpen} className={"mb-3"}>
+            <BsPlus size={25} /> Request Leave
+          </Button>
+        </Col>
+      </Row>
+
       <Modal isOpen={newRequestOpen}>
         <ModalHeader toggle={handleNewRequestOpen}>
           Create New Leave Request
         </ModalHeader>
         <ModalBody>
+          <div className={"mb-3"}>
+            You have <strong>6</strong> vacation days left for{" "}
+            <strong>2023</strong>
+          </div>
           <Form>
             <Row>
               <FormGroup>
@@ -171,17 +175,11 @@ const LeaveRequestScreen = () => {
           </Button>
         </ModalFooter>
       </Modal>
-      <Button onClick={handleNewRequestOpen} className={"mb-3"}>
-        <BsPlus size={25} /> Request Leave
-      </Button>
-      <Row className={"mb-3"}>
-        <Card>
-          <CardTitle>Leave Request Statistics</CardTitle>
-          <CardBody>Some Charts</CardBody>
-        </Card>
-      </Row>
-      <Row>
-        <Col>Calendar</Col>
+
+      <Row className={"mt-5"}>
+        <Col>
+          <EmployeeLeaveCalendar />
+        </Col>
         <Col>
           <h5>My Requests</h5>
           <Button className={"mb-3"}>Filter</Button>
@@ -190,7 +188,6 @@ const LeaveRequestScreen = () => {
           </Card>
         </Col>
       </Row>
-      {isManager ? <ManagerComponents /> : ""}
     </Container>
   );
 };

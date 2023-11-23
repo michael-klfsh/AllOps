@@ -28,11 +28,6 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
               <TbMoneybag /> Finance
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/time-leave">
-              <SlClock /> Time & Leave
-            </NavLink>
-          </NavItem>
         </Nav>
       </div>
       <div className="content">

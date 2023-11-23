@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
-import "../assets/style/FinanceNavBar.css";
+import "../../../assets/style/FinanceNavBar.css";
 
-// TODO Delete?
-const CompanyDashboardNavbar = () => {
+const DashboardNavBar = () => {
   // State to keep track of the active NavItem
   const [activeItem, setActiveItem] = useState("");
 
@@ -26,23 +25,31 @@ const CompanyDashboardNavbar = () => {
   return (
     <Nav className="horizontal-navbar">
       <NavItem
-        style={getNavItemStyle("working-hours")}
-        onClick={() => handleItemClick("working-hours")}
+        style={getNavItemStyle("form-spendings")}
+        onClick={() => handleItemClick("form-spendings")}
       >
-        <NavLink tag={Link} to="/working-hours">
-          Working Hours
+        <NavLink tag={Link} to="/leave-requests">
+          Leave Requests
         </NavLink>
       </NavItem>
       <NavItem
-        style={getNavItemStyle("leave-request")}
-        onClick={() => handleItemClick("leave-request")}
+        style={getNavItemStyle("leave-management")}
+        onClick={() => handleItemClick("leave-management")}
       >
-        <NavLink tag={Link} to="/leave-request">
-          Leave Request
+        <NavLink tag={Link} to="/leave-management">
+          Manage Team Leave
+        </NavLink>
+      </NavItem>
+      <NavItem
+        style={getNavItemStyle("leave-requests")}
+        onClick={() => handleItemClick("leave-requests")}
+      >
+        <NavLink tag={Link} to="/leave-statistics">
+          Leave Statistics
         </NavLink>
       </NavItem>
     </Nav>
   );
 };
 
-export default CompanyDashboardNavbar;
+export default DashboardNavBar;

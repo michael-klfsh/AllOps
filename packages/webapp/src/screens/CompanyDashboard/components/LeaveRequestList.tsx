@@ -80,6 +80,17 @@ const LeaveRequestList = ({
     }
   };
 
+  const computeAmountOfDays = (start: Date, end: Date) => {
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const startDate = Date.UTC(
+      start.getFullYear(),
+      start.getMonth(),
+      start.getDate()
+    );
+    const endDate = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
+
+    return Math.round((endDate - startDate + oneDay) / oneDay);
+  };
   return (
     <>
       <Modal isOpen={isOpen} toggle={handleClose}>
@@ -105,7 +116,9 @@ const LeaveRequestList = ({
                 {request.startDate.toLocaleDateString()} –{" "}
                 {request.endDate.toLocaleDateString()}
               </ListGroupItem>
-              <ListGroupItem>3 days</ListGroupItem>
+              <ListGroupItem>
+                {computeAmountOfDays(request.startDate, request.endDate)} day(s)
+              </ListGroupItem>
               <ListGroupItem>
                 {request.paid ? "Paid Leave" : "Unpaid Leave"}
               </ListGroupItem>

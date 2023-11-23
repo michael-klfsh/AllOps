@@ -12,7 +12,9 @@ import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
 import LeaveRequestScreen from "../screens/CompanyDashboard/LeaveRequestScreen";
 import HorizontalNavbar from "../components/FinanceNavBar";
-import CompanyDashboardNavbar from "../components/CompanyDashboardNavbar";
+import DashboardNavBar from "../screens/CompanyDashboard/components/DashboardNavBar";
+import LeaveRequestStatisticsScreen from "../screens/CompanyDashboard/LeaveRequestStatisticsScreen";
+import LeaveRequestManagementScreen from "../screens/CompanyDashboard/LeaveRequestManagementScreen";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -21,11 +23,6 @@ export const AppRouter = () => {
     {
       path: "/",
       element: <DailyDashboard />,
-      exact: true,
-    },
-    {
-      path: "/dashboard",
-      element: <div>Dashboard</div>,
       exact: true,
     },
     {
@@ -89,16 +86,47 @@ export const AppRouter = () => {
       exact: true,
     },
 
-    { path: "404", element: <NotFoundPage /> },
+    { path: "*", element: <NotFoundPage />, exact: true },
     { path: "*", element: <Navigate to="/404" /> },
   ];
 
   const specialRoute = [
     {
-      path: "/time-leave",
+      path: "/dashboard",
       element: (
         <>
+          <DashboardNavBar />
           <LeaveRequestScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-statistics",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestStatisticsScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-requests",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestScreen />
+        </>
+      ),
+      exact: true,
+    },
+    {
+      path: "/leave-management",
+      element: (
+        <>
+          <DashboardNavBar />
+          <LeaveRequestManagementScreen />
         </>
       ),
       exact: true,
