@@ -27,9 +27,9 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
       fetch(`${baseURL}/weather/lat/${lat}/lon/${lon}`)
         .then((response) => response.json())
         .then((json) => {
-          setWeather(json.weather[0].main);
+          setWeather(json.weather[0].main as string);
           setTemperature(Math.floor(json.main.temp - 273.15));
-          setWind(json.wind.speed);
+          setWind(json.wind.speed as number);
         })
         .catch((error) => console.error(error));
     }

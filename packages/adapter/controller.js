@@ -22,7 +22,7 @@ const getWeather = async (req, res) => {
           data = response.data;
           cache.set(cacheKey, data);
           console.log(data);
-          res.header("Access-Control-Allow-Origin", "http://localhost:3000"); //TODO noch immer CORS fehler?!
+          res.header("Access-Control-Allow-Origin", "http://localhost:3000");
           res.json(data);
         }
       })

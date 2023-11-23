@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
+import { ITask } from "@AllOps/lib-common";
 
 const Task = ({ children }: { children?: React.ReactNode }) => {
   const baseURL = "http://127.0.0.1:3001";
-  const [issues, setIssues] = useState([
-    { id: 0, html_url: "", title: "", assignee: "" },
-  ]); //Add model interface
+  const [issues, setIssues] = useState<ITask[]>([]);
 
   useEffect(() => {
     fetch(`${baseURL}/tasks/user/1`)
       .then((response) => response.json())
       .then((json) => {
         console.log("data");
-        console.log(json);
-        setIssues(json);
+        const tasks: ITask[] = json;
+        console.log(tasks);
+        setIssues(tasks);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -23,7 +23,7 @@ const Task = ({ children }: { children?: React.ReactNode }) => {
       <h3>Your current assigned GitHub issues</h3>
       <ListGroup>
         {issues.map((issue) => (
-          <ListGroupItem key={issue.id} href={issue.html_url} tag="a">
+          <ListGroupItem key={issue._id} href={issue.url} tag="a">
             <div>
               <span className="pe-2" style={{ fontWeight: "bold" }}>
                 {issue.title}
