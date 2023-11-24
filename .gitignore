@@ -37,3 +37,4 @@ umd
 
 /packages/adapter/config.json
 /packages/auth/config.json
+private.pem

@@ -1,4 +1,6 @@
 const connection = require("./dbconnect");
+var jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 const login = async (req, res) => {
   console.log(req.body);
@@ -23,7 +25,9 @@ const login = async (req, res) => {
         delete result._id;
       }
     }
-    res.status(200).send(result);
+    var privateKey = fs.readFileSync("private.pem");
+    var token = jwt.sign(result, privateKey, { algorithm: 'RS256' });
+    res.status(200).send(token);
   });
 };
 
