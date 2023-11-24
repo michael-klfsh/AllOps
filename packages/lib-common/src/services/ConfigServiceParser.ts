@@ -10,7 +10,7 @@ export class ConfigServiceParser<T> {
   constructor(
     configValues: TConfigValues,
     filePath = ".env",
-    input?: TEnvConfigInput
+    input?: TEnvConfigInput,
   ) {
     this.configValues = configValues;
 

@@ -7,7 +7,7 @@ import { ConfigService } from "./src/utils/ConfigService";
 const configService = new ConfigService();
 
 module.exports = (
-  env: { development?: boolean; platform?: string; dotenv?: boolean } = {}
+  env: { development?: boolean; platform?: string; dotenv?: boolean } = {},
 ) => ({
   mode: "development",
   entry: {

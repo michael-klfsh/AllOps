@@ -1,70 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wind from "../../assets/img/wind.svg";
 import WeatherIcon from "./WeatherIcon";
 
 const Weather = ({ children }: { children?: React.ReactNode }) => {
   //Variable
-  const [isOpen, setIsOpen] = useState(false);
+  const [weather, setWeather] = useState("");
+  const [temperature, setTemperature] = useState(0);
+  const [wind, setWind] = useState(0);
+  const [lat, setLat] = useState(0);
+  const [lon, setLon] = useState(0);
+  const [shouldFetch, setFetch] = useState(false);
+  const baseURL = "http://127.0.0.1:3001";
 
-  const data = {
-    coord: {
-      lon: 10.99,
-      lat: 44.34,
-    },
-    weather: [
-      {
-        id: 501,
-        main: "Rain",
-        description: "moderate rain",
-        icon: "10d",
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (response) => {
+        setLon(response.coords.longitude);
+        setFetch(true);
+        setLat(response.coords.latitude);
+        return 0;
       },
-    ],
-    base: "stations",
-    main: {
-      temp: 298.48,
-      feels_like: 298.74,
-      temp_min: 297.56,
-      temp_max: 300.05,
-      pressure: 1015,
-      humidity: 64,
-      sea_level: 1015,
-      grnd_level: 933,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 0.62,
-      deg: 349,
-      gust: 1.18,
-    },
-    rain: {
-      "1h": 3.16,
-    },
-    clouds: {
-      all: 100,
-    },
-    dt: 1661870592,
-    sys: {
-      type: 2,
-      id: 2075663,
-      country: "IT",
-      sunrise: 1661834187,
-      sunset: 1661882248,
-    },
-    timezone: 7200,
-    id: 3163858,
-    name: "Zocca",
-    cod: 200,
-  };
+      (error) => console.error(error),
+    );
 
-  const toggle = () => setIsOpen(!isOpen);
-  const weather = "Rain";
-  const temp = 25.12;
-  const wind = 0.62;
+    if (shouldFetch) {
+      fetch(`${baseURL}/weather/lat/${lat}/lon/${lon}`)
+        .then((response) => response.json())
+        .then((json) => {
+          setWeather(json.weather[0].main as string);
+          setTemperature(Math.floor(json.main.temp - 273.15));
+          setWind(json.wind.speed as number);
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [lat]);
 
   return (
     <div style={{ display: "flex" }}>
       <div style={{ width: "75%" }}>
-        <span>{temp}°C</span>
+        <span>{temperature}°C</span>
         <div>
           <Wind />
           <span>{wind}</span>

@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 
 const Calendar = ({ children }: { children?: React.ReactNode }) => {
   //Variable
-
-  const data = [
-    {
-      title: "BCH237",
-      start: "2023-11-15T10:30:00",
-      end: "2023-11-15T11:30:00",
-      extendedProps: {
-        department: "BioChemistry",
-      },
-      description: "Lecture",
-    },
-  ];
+  const baseURL = "http://127.0.0.1:3001";
+  const [data, setData] = useState([]);
 
   const workSpec = [
     {
@@ -35,8 +25,17 @@ const Calendar = ({ children }: { children?: React.ReactNode }) => {
     .pop();
   const workDays = [...new Set(workSpec.flatMap((item) => item.daysOfWeek))];
   const hideDays = [...Array(7).keys()].filter(
-    (day) => !workDays.includes(day)
+    (day) => !workDays.includes(day),
   );
+
+  useEffect(() => {
+    fetch(`${baseURL}/calendar`)
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <FullCalendar

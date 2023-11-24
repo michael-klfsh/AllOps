@@ -12,7 +12,7 @@ const WeatherIcon = ({ weatherName }: { weatherName: string }) => {
       return <Sun />;
     case "Rain":
       return <Rain />;
-    case "Cloud":
+    case "Clouds":
       return <Cloud />;
     case "Snow":
       return <Snow />;
