@@ -1,3 +1,6 @@
 {
   "port": 3002,
+  "connection-url": ,
+  "username": ,
+  "pw": ,
 }
