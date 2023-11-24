@@ -73,8 +73,8 @@ const getEmails = async (req, res) => {
 const getCalendar = async (req, res) => {
   const startDate = new Date();
   const endDate = new Date();
-  startDate.setHours(11, 30, 00);
-  endDate.setHours(13, 00, 00);
+  startDate.setHours(11, 30, 0);
+  endDate.setHours(13, 0, 0);
   const response = [
     {
       title: "BCH237",

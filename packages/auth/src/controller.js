@@ -1,6 +1,6 @@
 const connection = require("./dbconnect");
-var jwt = require('jsonwebtoken');
-const fs = require('fs');
+var jwt = require("jsonwebtoken");
+const fs = require("fs");
 
 const login = async (req, res) => {
   console.log(req.body);
@@ -26,8 +26,9 @@ const login = async (req, res) => {
       }
     }
     var privateKey = fs.readFileSync("private.pem");
-    var token = jwt.sign(result, privateKey, { algorithm: 'RS256' });
-    res.status(200).send(token);
+    var token = jwt.sign(result, privateKey, { algorithm: "RS256" });
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.json(token);
   });
 };
 

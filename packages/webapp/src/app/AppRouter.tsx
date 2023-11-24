@@ -15,6 +15,7 @@ import HorizontalNavbar from "../components/FinanceNavBar";
 import DashboardNavBar from "../screens/CompanyDashboard/components/DashboardNavBar";
 import LeaveRequestStatisticsScreen from "../screens/CompanyDashboard/LeaveRequestStatisticsScreen";
 import LeaveRequestManagementScreen from "../screens/CompanyDashboard/LeaveRequestManagementScreen";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -22,7 +23,11 @@ export const AppRouter = () => {
   const mainRoutes = [
     {
       path: "/",
-      element: <DailyDashboard />,
+      element: (
+        <ProtectedRoute>
+          <DailyDashboard />
+        </ProtectedRoute>
+      ),
       exact: true,
     },
     {
