@@ -3,7 +3,6 @@ var jwt = require("jsonwebtoken");
 const fs = require("fs");
 
 const login = async (req, res) => {
-  console.log(req.body);
   const username = req.body["un"];
   const password = req.body["pw"];
 
@@ -33,6 +32,17 @@ const login = async (req, res) => {
   });
 };
 
+const validate = async (req, res) => {
+  const token = req.body["token"];
+  var publicKey = fs.readFileSync("public.pem");
+  try {
+    const decoded = jwt.verify(token, publicKey);
+    res.json(decoded);
+  } catch {
+    res.json(403, "Token could not be validated!");
+  }
+};
+
 const logout = async (req, res) => {};
 
-module.exports = { login, logout };
+module.exports = { login, logout, validate };
