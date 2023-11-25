@@ -6,7 +6,11 @@ const Email = ({ children }: { children?: React.ReactNode }) => {
   const baseURL = "http://127.0.0.1:3001";
 
   useEffect(() => {
-    fetch(`${baseURL}/emails`)
+    fetch(`${baseURL}/emails`, {
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((json) => {
         setEmails(json.number);

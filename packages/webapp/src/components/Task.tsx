@@ -7,7 +7,11 @@ const Task = ({ children }: { children?: React.ReactNode }) => {
   const [issues, setIssues] = useState<ITask[]>([]);
 
   useEffect(() => {
-    fetch(`${baseURL}/tasks/user/1`)
+    fetch(`${baseURL}/tasks/user/1`, {
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((json) => {
         console.log("data");

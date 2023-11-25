@@ -29,7 +29,11 @@ const Calendar = ({ children }: { children?: React.ReactNode }) => {
   );
 
   useEffect(() => {
-    fetch(`${baseURL}/calendar`)
+    fetch(`${baseURL}/calendar`, {
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((json) => {
         setData(json);

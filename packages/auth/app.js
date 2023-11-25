@@ -5,7 +5,7 @@ const routes = require("./src/routes.js");
 const cors = require("cors");
 
 let corsOptions = {
-  allowedHeaders: "Content-Type",
+  allowedHeaders: "Content-Type,Authorization",
   origin: "http://localhost:3000",
 };
 
