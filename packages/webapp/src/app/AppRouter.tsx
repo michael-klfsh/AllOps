@@ -33,60 +33,60 @@ export const AppRouter = () => {
     {
       path: "/finance",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <FinancePage />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/form-spendings",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <FormSpendings />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/spendings-statistics",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <SpendingStatistics />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/form-materials",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <FormMaterials />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/requests-recap",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <RequestsRecap />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/company-income",
       element: (
-        <>
+        <ProtectedRoute>
           <HorizontalNavbar />
           <CompagnyIncome />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
@@ -99,40 +99,40 @@ export const AppRouter = () => {
     {
       path: "/dashboard",
       element: (
-        <>
+        <ProtectedRoute>
           <DashboardNavBar />
           <LeaveRequestScreen />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/leave-statistics",
       element: (
-        <>
+        <ProtectedRoute>
           <DashboardNavBar />
           <LeaveRequestStatisticsScreen />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/leave-requests",
       element: (
-        <>
+        <ProtectedRoute>
           <DashboardNavBar />
           <LeaveRequestScreen />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
     {
       path: "/leave-management",
       element: (
-        <>
+        <ProtectedRoute>
           <DashboardNavBar />
           <LeaveRequestManagementScreen />
-        </>
+        </ProtectedRoute>
       ),
       exact: true,
     },
