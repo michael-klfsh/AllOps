@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 
 const Login = () => {
-  const baseURL = "http://127.0.0.1:3001";
+  const baseURL = "http://127.0.0.1:3002";
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -10,9 +10,6 @@ const Login = () => {
     console.log("Form submitted");
     fetch(`${baseURL}/auth`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({
         un: formData.get("username"),
         pw: formData.get("password"),
