@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const baseURL = "http://127.0.0.1:3002";
+  const navigate = useNavigate();
+  const [error, isError] = useState(false);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    console.log("Form submitted");
+
     fetch(`${baseURL}/auth`, {
       method: "POST",
       headers: {
@@ -19,10 +22,21 @@ const Login = () => {
       }),
     })
       .then((res) => {
-        let token = res.json();
-        console.log(token);
+        if (res.ok) {
+          isError(false);
+          return res.json();
+        }
+        throw new Error(`${res.status}`);
       })
-      .catch((error) => console.error(error));
+      .then((token) => {
+        console.log(token);
+        localStorage.setItem("token", token);
+        navigate("/");
+      })
+      .catch((error) => {
+        isError(true);
+        console.error(error);
+      });
   };
 
   return (
@@ -55,6 +69,7 @@ const Login = () => {
         </div>
 
         <div>
+          {error ? <span>Please try again.</span> : null}
           <Button block>Login</Button>
         </div>
       </form>
