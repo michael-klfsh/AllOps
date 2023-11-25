@@ -10,6 +10,9 @@ const Login = () => {
     console.log("Form submitted");
     fetch(`${baseURL}/auth`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         un: formData.get("username"),
         pw: formData.get("password"),
