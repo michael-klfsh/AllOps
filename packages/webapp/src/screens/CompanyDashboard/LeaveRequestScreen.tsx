@@ -39,7 +39,7 @@ const LeaveRequestScreen = () => {
   const [newRequestOnEdit, setNewRequestOnEdit] =
     useState<TLeaveRequest>(INITIAL_STATE);
   const [newRequest, setNewRequest] = useState<TLeaveRequest | undefined>(
-    undefined
+    undefined,
   );
   const handleNewRequestOpen = () => {
     setNewRequestOpen(!newRequestOpen);

@@ -24,7 +24,11 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
     );
 
     if (shouldFetch) {
-      fetch(`${baseURL}/weather/lat/${lat}/lon/${lon}`)
+      fetch(`${baseURL}/weather/lat/${lat}/lon/${lon}`, {
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      })
         .then((response) => response.json())
         .then((json) => {
           setWeather(json.weather[0].main as string);
