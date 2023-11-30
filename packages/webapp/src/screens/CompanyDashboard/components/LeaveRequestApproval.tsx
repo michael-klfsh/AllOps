@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 
 const LeaveRequestApproval = () => {
   const [outForApproval, setOutForApproval] = useState<TLeaveRequestApproval[]>(
-    LEAVE_REQUEST_FOR_APPROVAL,
+    LEAVE_REQUEST_FOR_APPROVAL
   );
 
   const handleRequestForToast = (id: number, approved: boolean) => {
@@ -26,7 +26,7 @@ const LeaveRequestApproval = () => {
       toast.success(
         `${request.requester}'s leave request was ${
           approved ? "approved" : "denied"
-        }.`,
+        }.`
       );
 
       removeOutstandingRequest(id);
@@ -54,7 +54,7 @@ const LeaveRequestApproval = () => {
     const startDate = Date.UTC(
       start.getFullYear(),
       start.getMonth(),
-      start.getDate(),
+      start.getDate()
     );
     const endDate = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
 
