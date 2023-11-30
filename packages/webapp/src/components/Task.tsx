@@ -7,7 +7,11 @@ const Task = () => {
   const [issues, setIssues] = useState<ITask[]>([]);
 
   useEffect(() => {
-    fetch(`${baseURL}/tasks/user/1`)
+    fetch(`${baseURL}/tasks/user/1`, {
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((json) => {
         console.log("data");
@@ -28,7 +32,7 @@ const Task = () => {
               <span className="pe-2" style={{ fontWeight: "bold" }}>
                 {issue.title}
               </span>{" "}
-              at <span>{issue.assignee}</span>
+              at <span>{issue.repoName}</span>
             </div>
           </ListGroupItem>
         ))}
