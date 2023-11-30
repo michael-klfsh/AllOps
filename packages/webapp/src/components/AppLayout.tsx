@@ -4,6 +4,7 @@ import { Nav, NavItem, NavLink } from "reactstrap";
 import { MdDashboard } from "react-icons/md";
 import { TbMoneybag } from "react-icons/tb";
 import { FaHome } from "react-icons/fa";
+import { FaBusinessTime } from "react-icons/fa";
 
 import "./AppLayout.css"; // Ensure this CSS file exists in your project
 
@@ -25,6 +26,11 @@ const AppLayout = ({ children }: { children?: React.ReactNode }) => {
           <NavItem>
             <NavLink tag={Link} to="/finance">
               <TbMoneybag /> Finance
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to="/timestamp">
+              <FaBusinessTime /> Timestamp
             </NavLink>
           </NavItem>
         </Nav>

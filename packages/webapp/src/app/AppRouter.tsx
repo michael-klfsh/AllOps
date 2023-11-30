@@ -12,6 +12,7 @@ import FormMaterials from "../screens/Finance/FormMaterials";
 import CompagnyIncome from "../screens/Finance/CompagnyIncome";
 import RequestsRecap from "../screens/Finance/RequestsRecap";
 import HorizontalNavbar from "../components/FinanceNavBar";
+import TimestampPage from "../screens/TimestampPage";
 
 export const AppRouter = () => {
   const reactQueryClient = new QueryClient();
@@ -47,6 +48,15 @@ export const AppRouter = () => {
         <AppLayout>
           <HorizontalNavbar />
           <FinancePage />
+        </AppLayout>
+      ),
+      exact: true,
+    },
+    {
+      path: "/timestamp",
+      element: (
+        <AppLayout>
+          <TimestampPage />
         </AppLayout>
       ),
       exact: true,
