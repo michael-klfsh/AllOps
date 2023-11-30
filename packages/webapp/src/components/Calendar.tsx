@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import { EventInput } from "@fullcalendar/core";
 
-const Calendar = ({ children }: { children?: React.ReactNode }) => {
+const Calendar = () => {
   //Variable
   const baseURL = "http://127.0.0.1:3001";
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<EventInput[]>([]);
 
   const workSpec = [
     {
@@ -25,7 +26,7 @@ const Calendar = ({ children }: { children?: React.ReactNode }) => {
     .pop();
   const workDays = [...new Set(workSpec.flatMap((item) => item.daysOfWeek))];
   const hideDays = [...Array(7).keys()].filter(
-    (day) => !workDays.includes(day),
+    (day) => !workDays.includes(day)
   );
 
   useEffect(() => {

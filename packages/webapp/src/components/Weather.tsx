@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Wind from "../../assets/img/wind.svg";
 import WeatherIcon from "./WeatherIcon";
 
-const Weather = ({ children }: { children?: React.ReactNode }) => {
+const Weather = () => {
   //Variable
   const [weather, setWeather] = useState("");
   const [temperature, setTemperature] = useState(0);
@@ -20,7 +20,7 @@ const Weather = ({ children }: { children?: React.ReactNode }) => {
         setLat(response.coords.latitude);
         return 0;
       },
-      (error) => console.error(error),
+      (error) => console.error(error)
     );
 
     if (shouldFetch) {

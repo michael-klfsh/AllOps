@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./assets/SpendingStatistics.css";
-import { Col, Container, Row, Table } from "reactstrap";
-import { PieChart } from "@mui/x-charts";
-import Statistics from "../CompanyDashboard/components/Statistics";
+import { Container, Row, Table } from "reactstrap";
 import SpendingStatisticCharts from "./components/SpendingStatisticCharts"; // Import your CSS file
 
 // Define an interface for the spending data

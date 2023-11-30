@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Col, Row, Card, CardBody, CardTitle } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import Statistics from "./components/Statistics";
 
 const LeaveRequestStatisticsScreen = () => {

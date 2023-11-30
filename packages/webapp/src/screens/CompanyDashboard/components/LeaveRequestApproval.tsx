@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import {
   ELeaveRequestType,
   LEAVE_REQUEST_FOR_APPROVAL,
-  LEAVE_REQUEST_FOR_APPROVAL_RAW,
   TLeaveRequestApproval,
-  TLeaveRequestApproved,
 } from "../../../assets/data/LeaveRequest";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import {

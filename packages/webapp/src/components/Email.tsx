@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 
 const Email = () => {
   //Variable
-  const [emails, setEmails] = useState(0);
+  const [emails, setEmails] = useState<number>(0);
   const baseURL = "http://127.0.0.1:3001";
 
   useEffect(() => {
     fetch(`${baseURL}/emails`)
       .then((response) => response.json())
       .then((json) => {
-        setEmails(json.number);
+        if (Number.isInteger(json.number)) setEmails(json.number);
       })
       .catch((error) => console.error(error));
   }, []);

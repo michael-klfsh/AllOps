@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "reflect-metadata";
-import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AppRouter } from "./app/AppRouter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createRoot } from "react-dom/client";
 
 class Root extends Component {
   render() {
@@ -34,8 +34,11 @@ class Root extends Component {
 }
 
 export default Root;
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(<Root />);
 
-render(<Root />, document.getElementById("root"));
+// render(<Root />, document.getElementById("root"));
 
 // if (module.hot) {
 //   // https://github.com/webpack/webpack/issues/418#issuecomment-53398056

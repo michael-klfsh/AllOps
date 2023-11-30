@@ -2,9 +2,6 @@ import * as path from "path";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import DotenvWebpackPlugin from "dotenv-webpack";
-import { ConfigService } from "./src/utils/ConfigService";
-
-const configService = new ConfigService();
 
 module.exports = (
   env: { development?: boolean; platform?: string; dotenv?: boolean } = {}
