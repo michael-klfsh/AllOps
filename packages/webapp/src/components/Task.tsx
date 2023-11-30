@@ -32,7 +32,7 @@ const Task = ({ children }: { children?: React.ReactNode }) => {
               <span className="pe-2" style={{ fontWeight: "bold" }}>
                 {issue.title}
               </span>{" "}
-              at <span>{issue.assignee}</span>
+              at <span>{issue.repoName}</span>
             </div>
           </ListGroupItem>
         ))}
