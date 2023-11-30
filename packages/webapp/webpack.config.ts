@@ -7,7 +7,7 @@ import { ConfigService } from "./src/utils/ConfigService";
 const configService = new ConfigService();
 
 module.exports = (
-  env: { development?: boolean; platform?: string; dotenv?: boolean } = {},
+  env: { development?: boolean; platform?: string; dotenv?: boolean } = {}
 ) => ({
   mode: "development",
   entry: {
@@ -92,7 +92,8 @@ module.exports = (
     hints: false,
   },
   devServer: {
-    port: configService.get("PORT"),
+    // port: configService.get("PORT"),
+    port: 3000,
     historyApiFallback: true,
   },
   devtool: "eval-cheap-source-map", // TODO setting this to false or "source-map" solves the warning overload bug on console.. why?

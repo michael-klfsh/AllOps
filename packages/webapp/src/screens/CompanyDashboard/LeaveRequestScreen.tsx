@@ -23,6 +23,7 @@ import {
   TLeaveRequest,
 } from "../../assets/data/LeaveRequest";
 import EmployeeLeaveCalendar from "./components/EmployeeLeaveCalendar";
+import { FaFilter, FaSortAmountDown } from "react-icons/fa";
 
 const INITIAL_STATE: TLeaveRequest = {
   id: 0,
@@ -75,8 +76,14 @@ const LeaveRequestScreen = () => {
     <Container className={"p-sm-4"}>
       <Row className={"justify-content-center"}>
         <Col>
-          <h2>Leave Request Service</h2>
-          <Button onClick={handleNewRequestOpen} className={"mb-3"}>
+          <h2 className={"d-flex"}>
+            My <span className={"text-primary"}>&nbsp; Leave Requests</span>
+          </h2>
+          <Button
+            onClick={handleNewRequestOpen}
+            className={"mb-3"}
+            color={"primary"}
+          >
             <BsPlus size={25} /> Request Leave
           </Button>
         </Col>
@@ -177,12 +184,41 @@ const LeaveRequestScreen = () => {
       </Modal>
 
       <Row className={"mt-5"}>
+        <p>
+          Here is an overview of all of your existing and outstanding Leave
+          Requests.
+          <br />
+          <span className={"text-info fw-bold"}>Blue</span> indicates that your
+          request is waiting for approval.
+          <br />
+          <span className={"text-success fw-bold"}>Green</span> indicates that
+          your request has been approved.
+          <br />
+          <span className={"text-danger fw-bold"}>Red</span> indicates that your
+          request has been denied.
+          <br />
+        </p>
         <Col>
-          <EmployeeLeaveCalendar />
+          <Card>
+            <EmployeeLeaveCalendar />
+          </Card>
         </Col>
         <Col>
-          <h5>My Requests</h5>
-          <Button className={"mb-3"}>Filter</Button>
+          <Row className={"justify-content-between"}>
+            <Col>
+              <Button className={"mb-3"}>
+                <FaFilter />
+                &nbsp; Filter
+              </Button>
+            </Col>
+            <Col className={"m-0 col-auto"}>
+              <Button className={"mb-3"}>
+                <FaSortAmountDown />
+                &nbsp; Filter
+              </Button>
+            </Col>
+          </Row>
+
           <Card>
             <LeaveRequestList newRequest={newRequest} />
           </Card>

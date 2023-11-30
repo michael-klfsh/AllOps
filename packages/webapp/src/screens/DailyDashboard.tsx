@@ -6,23 +6,26 @@ import Calendar from "../components/Calendar";
 import Task from "../components/Task";
 
 const DailyDashboard = () => (
-  <Container>
-    <Row className="mb-2">
+  <Container className={"p-sm-4"}>
+    <h1>
+      Good day and
+      <span className={"text-primary"}>
+        <strong>&nbsp;Welcome</strong>
+      </span>
+      ! 🌟
+    </h1>
+    <Row className="my-5 h-100 ">
       <Col xs="8">
-        <Card className="mb-2" style={{ height: "calc(50% - 0.25rem)" }}>
-          <CardBody style={{ textAlign: "center", padding: "10px 10px" }}>
-            <h3>Good day and welcome to your Daily Dashboard! 🌟</h3>
-          </CardBody>
-        </Card>
-
-        <Card style={{ height: "calc(50% - 0.25rem)" }}>
-          <CardBody style={{ textAlign: "center" }}>
+        <Card className={"h-100 text-center d-flex"}>
+          <CardBody
+            className={"align-items-center d-flex justify-content-center"}
+          >
             <Email />
           </CardBody>
         </Card>
       </Col>
       <Col xs="4">
-        <Card style={{ height: "100%" }}>
+        <Card>
           <CardBody>
             <Weather />
           </CardBody>

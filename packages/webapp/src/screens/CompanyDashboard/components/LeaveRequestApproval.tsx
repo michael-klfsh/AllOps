@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import {
   ELeaveRequestType,
   LEAVE_REQUEST_FOR_APPROVAL,
+  LEAVE_REQUEST_FOR_APPROVAL_RAW,
   TLeaveRequestApproval,
+  TLeaveRequestApproved,
 } from "../../../assets/data/LeaveRequest";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import {
@@ -66,7 +68,10 @@ const LeaveRequestApproval = () => {
       {outForApproval.length >= 1 ? (
         <ListGroup>
           {outForApproval.map((request) => (
-            <ListGroupItem key={`${request.id}`} color={"info"}>
+            <ListGroupItem
+              key={`${request.id}`}
+              color={`${request.conflict ? "warning" : "info"}`}
+            >
               <ListGroup key={`${request.id}`} horizontal>
                 <ListGroupItem>{getLeaveIcon(request.type)}</ListGroupItem>
                 <ListGroupItem>{request.requester}</ListGroupItem>

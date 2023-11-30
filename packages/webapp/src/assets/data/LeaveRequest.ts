@@ -21,8 +21,12 @@ export type TLeaveRequest = {
   deletable: boolean; // State Machine would be necessary, but for mock data we don't care
 };
 
-export type TLeaveRequestApproval = TLeaveRequest & {
+export type TLeaveRequestApproved = TLeaveRequest & {
   requester: string;
+};
+
+export type TLeaveRequestApproval = TLeaveRequestApproved & {
+  conflict: boolean;
 };
 
 export const LEAVE_REQUESTS: TLeaveRequest[] = [
@@ -64,26 +68,16 @@ export const LEAVE_REQUESTS: TLeaveRequest[] = [
   },
 ];
 
-export const LEAVE_REQUEST_FOR_APPROVAL: TLeaveRequestApproval[] = [
+export const LEAVE_REQUEST_FOR_APPROVAL_RAW: TLeaveRequestApproved[] = [
   {
-    id: 1,
-    requester: "Sam Smith",
+    id: 5,
+    requester: "Louis Armstrong",
     status: ELeaveRequestStatus.APPROVED,
     type: ELeaveRequestType.VACATION,
     paid: true,
-    startDate: new Date(new Date().setDate(new Date().getDate() + 11)),
-    endDate: new Date(new Date().setDate(new Date().getDate() + 13)),
+    startDate: new Date(new Date().setDate(new Date().getDate() + 1)),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 1)),
     deletable: false,
-  },
-  {
-    id: 2,
-    requester: "Luoshan Rosan Zheng",
-    status: ELeaveRequestStatus.IN_PROGRESS,
-    type: ELeaveRequestType.SICK,
-    paid: true,
-    startDate: new Date(new Date().setDate(new Date().getDate() + 8)),
-    endDate: new Date(new Date().setDate(new Date().getDate() + 9)),
-    deletable: true,
   },
   {
     id: 3,
@@ -96,25 +90,46 @@ export const LEAVE_REQUEST_FOR_APPROVAL: TLeaveRequestApproval[] = [
     deletable: true,
   },
   {
-    id: 4,
-    requester: "Michael Kleefisch",
+    id: 2,
+    requester: "Luoshan Rosan Zheng",
     status: ELeaveRequestStatus.IN_PROGRESS,
-    type: ELeaveRequestType.HOME_OFFICE,
-    paid: false,
-    startDate: new Date(new Date().setDate(new Date().getDate() + 2)),
-    endDate: new Date(new Date().setDate(new Date().getDate() + 7)),
-    deletable: false,
+    type: ELeaveRequestType.SICK,
+    paid: true,
+    startDate: new Date(new Date().setDate(new Date().getDate() + 8)),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 9)),
+    deletable: true,
   },
-];
-
-export const APPROVED_LEAVE_REQUEST: TLeaveRequestApproval[] = [
   {
     id: 1,
     requester: "Sam Smith",
     status: ELeaveRequestStatus.APPROVED,
     type: ELeaveRequestType.VACATION,
     paid: true,
-    startDate: new Date(new Date().setDate(new Date().getDate() + 1)),
+    startDate: new Date(new Date().setDate(new Date().getDate() + 11)),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 13)),
+    deletable: false,
+  },
+
+  {
+    id: 4,
+    requester: "Michael Kleefisch",
+    status: ELeaveRequestStatus.IN_PROGRESS,
+    type: ELeaveRequestType.HOME_OFFICE,
+    paid: false,
+    startDate: new Date(new Date().setDate(new Date().getDate() + 39)),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 48)),
+    deletable: false,
+  },
+];
+
+export const APPROVED_LEAVE_REQUEST: TLeaveRequestApproved[] = [
+  {
+    id: 1,
+    requester: "Sam Smith",
+    status: ELeaveRequestStatus.APPROVED,
+    type: ELeaveRequestType.VACATION,
+    paid: true,
+    startDate: new Date(new Date().setDate(new Date().getDate() + 2)),
     endDate: new Date(new Date().setDate(new Date().getDate() + 8)),
     deletable: false,
   },
@@ -149,3 +164,18 @@ export const APPROVED_LEAVE_REQUEST: TLeaveRequestApproval[] = [
     deletable: false,
   },
 ];
+
+export const LEAVE_REQUEST_FOR_APPROVAL: TLeaveRequestApproval[] =
+  LEAVE_REQUEST_FOR_APPROVAL_RAW.map((request) => {
+    const conflict =
+      APPROVED_LEAVE_REQUEST.findIndex(
+        (r) =>
+          r.startDate <= request.endDate &&
+          r.endDate >= request.startDate &&
+          r.type !== ELeaveRequestType.HOME_OFFICE
+      ) >= 0;
+    return {
+      ...request,
+      conflict: conflict,
+    };
+  });

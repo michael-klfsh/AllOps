@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 
 const FormSpendings = () => {
   // Handler for form submission
@@ -9,52 +10,39 @@ const FormSpendings = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="form-style">
-        <h2 className="form-title">Spending Request Form</h2>
-
-        <div className="form-field">
-          <label htmlFor="title">Title of Request:</label>
+    <Container className={"p-sm-4"}>
+      <h2 className="mb-5">Spending Request Form</h2>
+      <Form onSubmit={handleSubmit} className="form-style">
+        <FormGroup>
+          <Label htmlFor="title">Title</Label>
           <br />
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="form-input"
-            required
-          />
-        </div>
+          <Input type="text" id="title" name="title" required />
+        </FormGroup>
 
-        <div className="form-field">
-          <label htmlFor="description">Reason for Spending:</label>
+        <FormGroup>
+          <Label htmlFor="description">Reason for Spending:</Label>
           <br />
-          <textarea
+          <Input
+            type={"textarea"}
             id="description"
             name="description"
             className="form-textarea"
             required
-          ></textarea>
-        </div>
+            maxLength={500}
+          ></Input>
+        </FormGroup>
 
-        <div className="form-field">
-          <label htmlFor="fileUpload">Upload File (photo or PDF):</label>
+        <FormGroup>
+          <Label htmlFor="fileUpload">Upload File (photo or PDF):</Label>
           <br />
-          <input
-            type="file"
-            id="fileUpload"
-            name="fileUpload"
-            className="form-file"
-            required
-          />
-        </div>
+          <Input type="file" id="fileUpload" name="fileUpload" required />
+        </FormGroup>
 
-        <div className="form-button">
-          <button type="submit" className="submit-button">
-            Submit Request
-          </button>
-        </div>
-      </form>
-    </div>
+        <Button type="submit" className="submit-button">
+          Submit Request
+        </Button>
+      </Form>
+    </Container>
   );
 };
 export default FormSpendings;
