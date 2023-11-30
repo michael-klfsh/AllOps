@@ -4,7 +4,7 @@ import ManagerComponents from "./components/ManagerComponents";
 
 const LeaveRequestManagementScreen = () => {
   return (
-    <Container>
+    <Container className={"p-sm-4"}>
       <h2>Manage Team Requests</h2>
       <Row className={"my-5"}>
         <ManagerComponents />

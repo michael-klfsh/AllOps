@@ -14,7 +14,7 @@ const getWeather = async (req, res) => {
   } else {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${CONFIG.keys.weather}`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${req.params.lat}&lon=${req.params.lon}&appid=${CONFIG.keys.weather}`
       )
       .then((response) => {
         if (response.status == 200) {

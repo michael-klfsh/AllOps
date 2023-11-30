@@ -1,9 +1,14 @@
 import React from "react";
-import AppLayout from "../components/AppLayout";
+import { Container, Row } from "reactstrap";
 
 const NotFoundPage = () => (
-  <AppLayout>
-    <h1>Sorry, but this page does not exist!</h1>
-  </AppLayout>
+  <Container className={"h-100"}>
+    <Row className={"align-items-center justify-content-center h-100"}>
+      <h1 className={"text-center"}>
+        :-( <br />
+        Sorry, but this page does not exist!
+      </h1>
+    </Row>
+  </Container>
 );
 export default NotFoundPage;

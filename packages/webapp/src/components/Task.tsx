@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { ITask } from "@AllOps/lib-common";
 
-const Task = ({ children }: { children?: React.ReactNode }) => {
+const Task = () => {
   const baseURL = "http://127.0.0.1:3001";
   const [issues, setIssues] = useState<ITask[]>([]);
 

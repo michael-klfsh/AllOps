@@ -5,7 +5,6 @@
 .sidebar {
   background: #333;
   color: white;
-  padding: 1rem;
   min-height: 100vh;
   width: 250px;
   transition: width 0.4s ease;
@@ -14,11 +13,16 @@
   z-index: 1;
 }
 
+.sidebar > ul > div {
+  padding: 1rem;
+}
+
 .content {
   width: 100%;
   transition: margin-left 0.4s ease;
   height: 100vh;
   overflow-y: scroll;
+  background-color: #f0f0f0;
 }
 
 /* Style the navigation menu inside the sidebar */
@@ -35,4 +39,9 @@
 .nav-link:hover {
   color: #ff85d8;
   font-size: 25px;
+}
+
+.auth-link {
+  position: absolute;
+  bottom: 0;
 }

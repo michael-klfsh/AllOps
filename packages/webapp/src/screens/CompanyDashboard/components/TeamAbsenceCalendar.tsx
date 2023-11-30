@@ -4,7 +4,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import {
   APPROVED_LEAVE_REQUEST,
   ELeaveRequestType,
-} from "../../../assets/data/LeaveRequest"; // a plugin!
+} from "../../../assets/data/LeaveRequest";
+import { Card, CardBody } from "reactstrap";
 
 const TeamAbseneCalendar = () => {
   const getEventBackgroundColor = (type: ELeaveRequestType) => {
@@ -29,17 +30,18 @@ const TeamAbseneCalendar = () => {
   const data = generateData();
 
   return (
-    <>
-      <h5>Team Absence</h5>
-      <FullCalendar
-        editable={false}
-        plugins={[dayGridPlugin]}
-        initialView="dayGridMonth"
-        events={data}
-        selectable
-        weekends={false}
-      />
-    </>
+    <Card>
+      <CardBody>
+        <FullCalendar
+          editable={false}
+          plugins={[dayGridPlugin]}
+          initialView="dayGridMonth"
+          events={data}
+          selectable
+          weekends={false}
+        />
+      </CardBody>
+    </Card>
   );
 };
 

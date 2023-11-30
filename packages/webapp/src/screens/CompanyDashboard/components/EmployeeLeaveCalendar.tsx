@@ -5,7 +5,8 @@ import {
   ELeaveRequestStatus,
   ELeaveRequestType,
   LEAVE_REQUESTS,
-} from "../../../assets/data/LeaveRequest"; // a plugin!
+} from "../../../assets/data/LeaveRequest";
+import { Card, CardBody } from "reactstrap"; // a plugin!
 
 const EmployeeLeaveCalendar = () => {
   const getEventBackgroundColor = (status: ELeaveRequestStatus) => {
@@ -47,17 +48,18 @@ const EmployeeLeaveCalendar = () => {
   const data = generateData();
 
   return (
-    <>
-      <h5>My Leaves</h5>
-      <FullCalendar
-        editable={false}
-        plugins={[dayGridPlugin]}
-        initialView="dayGridMonth"
-        events={data}
-        selectable
-        weekends={false}
-      />
-    </>
+    <Card>
+      <CardBody>
+        <FullCalendar
+          editable={false}
+          plugins={[dayGridPlugin]}
+          initialView="dayGridMonth"
+          events={data}
+          selectable
+          weekends={false}
+        />
+      </CardBody>
+    </Card>
   );
 };
 

@@ -9,7 +9,6 @@ const MyNavbar = () => {
 
   // Function to handle NavItem click
   const handleItemClick = (item: string) => {
-    console.log("Hello");
     setActiveItem(item);
     getNavItemStyle(item);
   };

@@ -85,7 +85,7 @@ const LeaveRequestList = ({
     const startDate = Date.UTC(
       start.getFullYear(),
       start.getMonth(),
-      start.getDate(),
+      start.getDate()
     );
     const endDate = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
 

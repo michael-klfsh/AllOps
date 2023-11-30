@@ -20,16 +20,18 @@ const ProtectedRoute = ({ children }: { children?: React.ReactNode }) => {
         if (!response.ok) {
           throw new Error(`${response.status}`);
         }
-        response.json();
+        response
+          .json()
+          .then(() => {
+            //TODO assign user data to variable
+            setvalidation(true);
+          })
+          .catch((error) => {
+            console.log(error);
+            setvalidation(false);
+          });
       })
-      .then((json) => {
-        //TODO assign user data to variable
-        setvalidation(true);
-      })
-      .catch((error) => {
-        console.log(error);
-        setvalidation(false);
-      });
+      .catch((e: Error) => console.log("error " + e.message));
   }, [token]);
 
   if (token != null && isvalidated) {
