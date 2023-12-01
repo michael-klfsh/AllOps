@@ -14,30 +14,54 @@ const Task = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log("data");
         const tasks: ITask[] = json;
-        console.log(tasks);
         setIssues(tasks);
       })
       .catch((error) => console.error(error));
   }, []);
 
   return (
-    <div>
+    <>
       <h3>Your current assigned GitHub issues</h3>
       <ListGroup>
-        {issues.map((issue) => (
-          <ListGroupItem key={issue._id} href={issue.url} tag="a">
-            <div>
-              <span className="pe-2" style={{ fontWeight: "bold" }}>
-                {issue.title}
-              </span>{" "}
-              at <span>{issue.repoName}</span>
-            </div>
+        {issues.map((issue, index) => (
+          <ListGroupItem
+            key={index}
+            href={issue.url}
+            tag="a"
+            className={`d-flex justify-content-between align-items-start ${
+              index % 2 === 0 ? "list-group-item-secondary" : ""
+            }`}
+            target="_blank"
+          >
+            <>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">{issue.title}</div>
+                at {issue.repoName}, last updated:{" "}
+                {new Date(`${issue.lastUpdated}`).toLocaleDateString()}
+              </div>
+              {issue.labels.map((label, index) => (
+                <span
+                  key={`${issue.title}-${index}-${label.name}`}
+                  className={"ms-1 badge rounded-pill"}
+                  ref={(el) => {
+                    if (el) {
+                      el.style.setProperty(
+                        "background-color",
+                        `${label.color}`,
+                        "important"
+                      );
+                    }
+                  }}
+                >
+                  {label.name}
+                </span>
+              ))}
+            </>
           </ListGroupItem>
         ))}
       </ListGroup>
-    </div>
+    </>
   );
 };
 export default Task;

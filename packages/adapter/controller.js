@@ -18,10 +18,8 @@ const getWeather = async (req, res) => {
       )
       .then((response) => {
         if (response.status == 200) {
-          console.log("Not in cache");
           data = response.data;
           cache.set(cacheKey, data);
-          console.log(data);
           res.header("Access-Control-Allow-Origin", "http://localhost:3000");
           res.json(data);
         }
@@ -35,25 +33,35 @@ const getWeather = async (req, res) => {
 
 const getTasks = async (req, res) => {
   axios
-    .get(`https://api.github.com/issues`, {
-      headers: { Authorization: `Bearer ${CONFIG.keys.github}` },
+    .get(`https://api.github.com/repos/w4r45u5/AllOps/issues`, {
+      headers: {
+        Authorization: `Bearer ${CONFIG.keys.github}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
     })
     .then((response) => {
-      if (response.status == 200) {
+      if (response.status === 200) {
         result = [];
         data = response.data;
-        for (let i = 0; i < data.length; i++) {
-          //TODO create issue model and use json parsing
-          const issue = {};
-          issue.assignee = data[i].assignee.login;
-          issue.url = data[i].html_url;
-          issue.id = data[i].id;
-          issue.title = data[i].title;
-          issue.number = data[i].number;
-          issue.repoName = data[i].repository.name;
-          result.push(issue);
-        }
-        console.log(result);
+
+        data.forEach((item) => {
+          result.push({
+            id: item.id,
+            title: item.title,
+            url: item.html_url,
+            isOpen: item.state === "open",
+            assignee: item.assignee.login,
+            number: item.number,
+            repoName: "AllOps",
+            labels: item.labels.map((label) => {
+              return {
+                name: label.name,
+                color: `#${label.color}`,
+              };
+            }),
+            lastUpdated: item.updated_at,
+          });
+        });
         res.header("Access-Control-Allow-Origin", "http://localhost:3000");
         res.json(result);
       }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wind from "../../assets/img/wind.svg";
 import WeatherIcon from "./WeatherIcon";
+import { FaWind } from "react-icons/fa";
 
 const Weather = () => {
   //Variable
@@ -33,22 +34,23 @@ const Weather = () => {
         .then((json) => {
           setWeather(json.weather[0].main as string);
           setTemperature(Math.floor(json.main.temp - 273.15));
-          setWind(json.wind.speed as number);
+          setWind(Number(json.wind.speed));
         })
         .catch((error) => console.error(error));
     }
   }, [lat]);
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "75%" }}>
-        <span>{temperature}°C</span>
+    <div className={"d-flex justify-content-between align-items-start"}>
+      <div>
+        <h3>{weather}</h3>
+        <span className={"fs-5"}>{temperature}&nbsp;°C</span>
         <div>
-          <Wind />
-          <span>{wind}</span>
+          <FaWind />
+          <span className={"fs-5"}>&nbsp;{wind} meter/sec</span>
         </div>
       </div>
-      <div style={{ width: "25%" }}>
+      <div className={"w-25"}>
         <WeatherIcon weatherName={weather} />
       </div>
     </div>

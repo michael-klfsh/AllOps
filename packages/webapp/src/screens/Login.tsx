@@ -29,7 +29,6 @@ const Login = () => {
         throw new Error(`${res.status}`);
       })
       .then((token) => {
-        console.log(token);
         localStorage.setItem("token", token);
         navigate("/");
       })

@@ -4,6 +4,7 @@ import { Card, CardBody, Row, Col, Container } from "reactstrap";
 import Email from "../components/Email";
 import Calendar from "../components/Calendar";
 import Task from "../components/Task";
+import PresentTeamMembers from "../components/PresentTeamMembers";
 
 const DailyDashboard = () => (
   <Container className={"p-sm-4"}>
@@ -14,6 +15,10 @@ const DailyDashboard = () => (
       </span>
       ! 🌟
     </h1>
+    <h4>
+      You arrived at the office today at{" "}
+      <span className={"fw-bold"}>08:42 AM</span>
+    </h4>
     <Row className="my-5 h-100 ">
       <Col xs="8">
         <Card className={"h-100 text-center d-flex"}>
@@ -34,11 +39,20 @@ const DailyDashboard = () => (
     </Row>
     <Row>
       <Col xs="6">
-        <Card>
-          <CardBody>
-            <Calendar />
-          </CardBody>
-        </Card>
+        <Row className={"mb-3"}>
+          <Card>
+            <CardBody>
+              <Calendar />
+            </CardBody>
+          </Card>
+        </Row>
+        <Row>
+          <Card>
+            <CardBody>
+              <PresentTeamMembers />
+            </CardBody>
+          </Card>
+        </Row>
       </Col>
 
       <Col xs="6">

@@ -9,6 +9,7 @@ const WeatherIcon = ({ weatherName }: { weatherName: string }) => {
 
   switch (weather) {
     case "Sun":
+    case "Clear":
       return <Sun />;
     case "Rain":
       return <Rain />;
