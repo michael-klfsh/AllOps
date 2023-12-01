@@ -8,7 +8,6 @@ import {
 } from "reactstrap";
 import { Avatar } from "@mui/material";
 import { FaPaperPlane } from "react-icons/fa";
-import useModalRemind from "./ModelRemind";
 import useModalMessage from "./ModalMessage";
 
 interface IEmployeeAvailability {
