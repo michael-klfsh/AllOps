@@ -1,10 +1,11 @@
 export interface ITask {
-  _id: string;
+  id: number;
   title: string;
   url: string;
   isOpen: boolean;
-  labels: Array<string>;
   assignee: string;
   number: number;
   repoName: string;
+  labels: { name: string; color: string }[];
+  lastUpdated: string;
 }

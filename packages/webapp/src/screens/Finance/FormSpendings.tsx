@@ -6,7 +6,6 @@ const FormSpendings = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     // Add logic to handle form data
-    console.log("Form submitted");
   };
 
   return (

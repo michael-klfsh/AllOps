@@ -4,7 +4,6 @@ import "./assets/FormMaterials.css";
 const FormMaterials = () => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log("Form submitted");
   };
 
   return (

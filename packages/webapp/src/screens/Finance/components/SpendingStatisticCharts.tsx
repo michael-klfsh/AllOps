@@ -138,7 +138,6 @@ const SpendingStatisticCharts = ({
         });
       });
     });
-    console.log(barData);
     return barData;
   };
   /**
