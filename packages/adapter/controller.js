@@ -50,7 +50,7 @@ const getTasks = async (req, res) => {
             title: item.title,
             url: item.html_url,
             isOpen: item.state === "open",
-            assignee: item.assignee.login,
+            assignee: item.assignee?.login,
             number: item.number,
             repoName: "AllOps",
             labels: item.labels.map((label) => {
